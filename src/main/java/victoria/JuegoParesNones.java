@@ -106,7 +106,7 @@ public class JuegoParesNones {
                         //------------OPERO----------------
                         //Realizo cálculos 
                         sumaNumeros = numJ1 + numJ2;
-                        System.out.println("La suma de ambos números es: " + sumaNumeros + " por lo tanto: ");
+                        System.out.println("La suma de ambos números es: " + sumaNumeros + " ,por lo tanto: ");
 
                         //condición if else para ver resultado y ganador
                         if (sumaNumeros % 2 == 0) {
@@ -122,7 +122,7 @@ public class JuegoParesNones {
                             if (esPar == false) {
                                 System.out.println("JUGADOR 1 Ohh que pena has perdido. Pide la revancha");
                             } else {
-                                System.out.println("JUGADOR 1 Ohh que pena has perdido. Pide la revancha");
+                                System.out.println("JUGADOR 2 Ohh que pena has perdido. Pide la revancha");
                             }
                         }
 
@@ -177,7 +177,25 @@ public class JuegoParesNones {
 
                         System.out.println("La máquina ha elegido el:  " + numRandom);
 
-                        //toca operar 
+                         //------------OPERO--------------
+                        //realizo los cálculos 
+                        sumaAleatorio = numJ1 + numRandom;
+                        System.out.println("La suma de ambos números es " + sumaAleatorio + " ,por lo tanto:");
+
+                        //oncidición if else para ver resultado del ganador
+                        if (sumaAleatorio % 2 == 0){
+                            System.out.println("Gana la opción PAR");
+                            if(esPar == true){
+                                System.out.println("JUGADOR 1 ENHORABUENA HAS GANADO");
+                                
+                            } else { System.out.println("LA MÁQUINA HA GANADO");}
+                        }
+                        else {
+                            System.out.println("Gana la opción IMPAR");
+                            if (esPar ==false){
+                                System.out.println("JUGADOR 1 Ohh que pena has perdido con una máquina. Pide la revancha");
+                            } else {System.out.println("Has vencido a la máquina");}
+                        } 
                         
                     }//end do1 case2
                     while (!optJ1.equals("p") && !optJ1.equals("P") && !optJ1.equals("n")
