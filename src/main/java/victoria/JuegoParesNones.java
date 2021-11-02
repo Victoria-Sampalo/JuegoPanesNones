@@ -133,12 +133,46 @@ public class JuegoParesNones {
                     break;
 
                 case "2":
-                    System.out.println("Has elegido la opción\n2.MODALIDAD CONTRA LA MAQUINA\n-----------\n");
+                    System.out.println("Has elegido la opción\n2.MODALIDAD CONTRA LA MÁQUINA\n-----------\n");
+                    do {
+                         //solicito si el jugador 1 elige ser PAR O NONES
+                        System.out.println("Jugador 1-Introduzca si quiere ser pares (p) o nones (n)");
+                        //guardo dato introducido
+                        optJ1 = teclado.nextLine();
+                        
+                        //switch opciones posibles de optJ1
+                        switch (optJ1) {
+                            //opcion PARES
+                            case "P":
+                            case "p":
+                                System.out.println("Jugador 1. Has elegido ser PARES\n"
+                                        + "La máquina juega con NONES");
+                                esPar = true; 
+                                break;
+                            //opcion NONES 
+                            case "n":
+                            case "N":
+                                System.out.println("Jugador 1. Has elegido ser NONES\n"
+                                        + "La máquina juega con PARES");
+                                esPar = false;
+                                break;
 
+                            default:
+                                System.out.println("opción no válida, intentalo de nuevo");
+                                break;
+                        }//end switch.optJ1 
+                        
+                        
+                        
+                        
+                        
+                     while (!optJ1.equals("p") && !optJ1.equals("P") && !optJ1.equals("n")
+                            && !optJ1.equals("N")); 
+                     
                     break;
 
                 case "3":
-                    System.out.println("Has elegido la opción\n3. SALIR DEL JUEGO\n-----------\n");
+                    System.out.println("Has elegido la opción\n3. SALIR DEL JUEGO. ¡HASTA LA PRÓXIMA!\n-----------\n");
 
                     break;
 
