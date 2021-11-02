@@ -33,7 +33,7 @@ public class JuegoParesNones {
         //-----------------MENU--------------------------
         do { //repetir el bucle hasta que yo no le diga salir.
 
-            do {
+            
                 //MENÚ DE OPCIONES QUE VISUALIZA EL USER
                 System.out.println("\n----------JUEGO-PARES-O-NONES----------\n"
                         + "Vamos a jugar a un juego. Elija una de las siguientes opciones:");
@@ -43,10 +43,6 @@ public class JuegoParesNones {
 
                 //pido dato al user de su opcion
                 opcion = teclado.nextLine();
-
-            } //end do2
-            while (!opcion.equals("1") && !opcion.equals("2") && !opcion.equals("3"));
-            //estructura de while en string (!opcion.equals() &&...);
 
             switch (opcion) {
 
@@ -186,7 +182,7 @@ public class JuegoParesNones {
                         if (sumaAleatorio % 2 == 0){
                             System.out.println("Gana la opción PAR");
                             if(esPar == true){
-                                System.out.println("JUGADOR 1 ENHORABUENA HAS GANADO");
+                                System.out.println("JUGADOR 1, ENHORABUENA HAS GANADO A LA MÁQUINA");
                                 
                             } else { System.out.println("LA MÁQUINA HA GANADO");}
                         }
@@ -200,7 +196,11 @@ public class JuegoParesNones {
                     }//end do1 case2
                     while (!optJ1.equals("p") && !optJ1.equals("P") && !optJ1.equals("n")
                             && !optJ1.equals("N"));
-
+                    
+                    
+                    //solución para el bug doble impresión, con esto limpio el scaner
+                    teclado.nextLine();
+                    
                     break;
 
                 case "3":
