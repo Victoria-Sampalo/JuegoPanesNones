@@ -39,17 +39,18 @@ public class JuegoParesNones {
 
            do {
                //MENÚ DE OPCIONES QUE VISUALIZA EL USER
-               System.out.println("\n-------------------------\n"
-                       + "Vamos a jugar a un juego. Elija modalidad de juego:");
-               System.out.println("1. Modalidad Manual");
+               System.out.println("\n----------JUEGO-PARES-O-NONES----------\n"
+                       + "Vamos a jugar a un juego. Elija una de las siguientes opciones:");
+               System.out.println("1. Modalidad manual");
                System.out.println("2. Modalidad juega con la máquina");
-               System.out.println("3. Salir dle juego ");
-               System.out.println("Ha elegido la opción: ");
+               System.out.println("3. Salir del juego \n---------------------\n");
+               
                
                //pido dato al user de su opcion
                opcion = teclado.nextLine();
+               System.out.println("Ha elegido la opción: ");
             } //end do2
-           while (!opcion.equals("1") && !opcion.equals("2") );
+           while (!opcion.equals("1") && !opcion.equals("2") && !opcion.equals("3") );
             //estructura de while en string (!opcion.equals() &&...);
          
            switch (opcion){
@@ -57,19 +58,15 @@ public class JuegoParesNones {
                case "1": 
                    System.out.println("1. MODALIDAD MANUAL\n-----------\n");
                    
-                   //solicito si el jugador 1 elige ser PAR O NONES
-                   System.out.println("Jugador 1-Introduzca si quiere ser pares (p) o nones (n)");
-                   
-                   optJ1 = teclado.nextLine();
-                   
                    //do-while para los datos en string del jugador 1
                    do {
                     
+                       //solicito si el jugador 1 elige ser PAR O NONES
+                   System.out.println("Jugador 1-Introduzca si quiere ser pares (p) o nones (n)");
+                   
+                   optJ1 = teclado.nextLine();
                        
-                     //me meto en la condicion if else para el primer case
-                   
-                   
-                   
+                    
                    } while (!optJ1.equals("p") && !optJ1.equals("P") && !optJ1.equals("n") 
                            && !optJ1.equals("N"));
                    
@@ -82,12 +79,14 @@ public class JuegoParesNones {
                    System.out.println("2.MODALIDAD CONTRA LA MAQUINA\n-----------\n");
                    
                 break;
-                
-               default:
-                break;
-                
+               
+               case "3":
+                   System.out.println("3. SALIR DEL JUEGO\n-----------\n");
                    
-           }//end witch
+                break;
+              
+                   
+           }//end switch
        
         }//end do1
         while (!opcion.equals("3"));
