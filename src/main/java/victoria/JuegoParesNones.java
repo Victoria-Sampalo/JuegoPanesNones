@@ -40,10 +40,11 @@ public class JuegoParesNones {
                 System.out.println("1. Modalidad manual");
                 System.out.println("2. Modalidad juega con la máquina");
                 System.out.println("3. Salir del juego \n---------------------\n");
-
+                System.out.println("Elija una opción: ");
                 //pido dato al user de su opcion
                 opcion = teclado.nextLine();
-
+                
+            //creo estructura de selcción switch
             switch (opcion) {
 
                 case "1":
@@ -56,9 +57,10 @@ public class JuegoParesNones {
                         System.out.println("Jugador 1-Introduzca si quiere ser pares (p) o nones (n)");
 
                         optJ1 = teclado.nextLine();
-                        //  System.out.println("El jugador 1 ha elegido " +  optJ1);
-                        //en función de la elección de jugador 1, el jugador 2 será
-
+                        
+                       //esta condición me permite repetir si el user introduce un caracter erroneo
+                     } while (!optJ1.equals("p") && !optJ1.equals("P") && !optJ1.equals("n")
+                           && !optJ1.equals("N"));
                         switch (optJ1) {
                             //opcion PARES
                             case "P":
@@ -88,7 +90,7 @@ public class JuegoParesNones {
 
                             System.out.println("Jugador 1- Has elegido el número: " + numJ1);
                             break; //break para que no me pida el número infinitas veces, no se como salir del bucle
-                        } while (numJ1 < 0 || numJ1 < 10); //condición siempre entre 0 y 10
+                        } while (numJ1 < 0 || numJ1 > 10); //condición siempre entre 0 y 10
 
                         //jugador 2
                         do {
@@ -97,7 +99,7 @@ public class JuegoParesNones {
 
                             System.out.println("Jugador 2- Has elegido el número: " + numJ2);
                             break;
-                        } while (numJ2 < 0 || numJ2 < 10);
+                        } while (numJ2 < 0 || numJ2 > 10);
 
                         //------------OPERO----------------
                         //Realizo cálculos 
@@ -122,9 +124,6 @@ public class JuegoParesNones {
                             }
                         }
 
-                    } while (!optJ1.equals("p") && !optJ1.equals("P") && !optJ1.equals("n")
-                            && !optJ1.equals("N"));
-
                     break;
 
                 case "2":
@@ -134,7 +133,9 @@ public class JuegoParesNones {
                         System.out.println("Jugador 1-Introduzca si quiere ser pares (p) o nones (n)");
                         //guardo dato introducido
                         optJ1 = teclado.nextLine();
-
+                     }//end do1 case2
+                    while (!optJ1.equals("p") && !optJ1.equals("P") && !optJ1.equals("n")
+                            && !optJ1.equals("N"));
                         //switch opciones posibles de optJ1
                         switch (optJ1) {
                             //opcion PARES
@@ -165,7 +166,7 @@ public class JuegoParesNones {
 
                             System.out.println("Jugador 1- Has elegido el número: " + numJ1);
                             break; //break para que no me pida el número infinitas veces, no se como salir del bucle
-                        } while (numJ1 < 0 || numJ1 < 10); //condición siempre entre 0 y 10
+                        } while (numJ1 < 0 || numJ1 > 10); //condición siempre entre 0 y 10
 
                         //genero un número aleatorio de la máquina, rango de 0 a 10. Uso clase random
                         //estructura (max - min + 1) + min 
@@ -193,9 +194,7 @@ public class JuegoParesNones {
                             } else {System.out.println("Has vencido a la máquina");}
                         } 
                         
-                    }//end do1 case2
-                    while (!optJ1.equals("p") && !optJ1.equals("P") && !optJ1.equals("n")
-                            && !optJ1.equals("N"));
+                    
                     
                     
                     //solución para el bug doble impresión, con esto limpio el scaner
@@ -205,12 +204,16 @@ public class JuegoParesNones {
 
                 case "3":
                     System.out.println("Has elegido la opción\n3. SALIR DEL JUEGO. ¡HASTA LA PRÓXIMA!\n-----------\n");
-
+                    
+                    break;
+                default: 
+                    System.out.println("Opción no válida.Inténtalo de nuevo.");
                     break;
 
             }//end switch
 
         }//end do1
+        //Cuando user pulse 3 el programa se cerrará
         while (!opcion.equals("3"));
 
     }
