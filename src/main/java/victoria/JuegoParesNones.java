@@ -16,15 +16,14 @@ public class JuegoParesNones {
         Scanner teclado = new Scanner(System.in);
 
         //objeto de clase tipo random
-        Random NumAleatorio = new Random();
+        Random numAleatorio = new Random();
 
         //DEFINO VARIABLES A USAR---------------------------
         String opcion;
         String optJ1;
-        int numJ1, numJ2, sumaNumeros;
+        int numJ1, numJ2, sumaNumeros, sumaAleatorio;
 
-        int NumPares, NumNones;
-
+        int numRandom;
         boolean esPar = false; //luego le doy valor en el if-else
 
         //constantes
@@ -44,7 +43,7 @@ public class JuegoParesNones {
 
                 //pido dato al user de su opcion
                 opcion = teclado.nextLine();
-                
+
             } //end do2
             while (!opcion.equals("1") && !opcion.equals("2") && !opcion.equals("3"));
             //estructura de while en string (!opcion.equals() &&...);
@@ -70,7 +69,7 @@ public class JuegoParesNones {
                             case "p":
                                 System.out.println("Jugador 1. Has elegido ser PARES\n"
                                         + "Jugador 2. Eres NONES");
-                                esPar = true; 
+                                esPar = true;
                                 break;
                             //opcion NONES 
                             case "n":
@@ -106,27 +105,27 @@ public class JuegoParesNones {
 
                         //------------OPERO----------------
                         //Realizo cálculos 
-                        sumaNumeros = numJ1 + numJ2; 
-                        System.out.println("La suma de ambos números es: "+ sumaNumeros + " por lo tanto: ");
-                        
+                        sumaNumeros = numJ1 + numJ2;
+                        System.out.println("La suma de ambos números es: " + sumaNumeros + " por lo tanto: ");
+
                         //condición if else para ver resultado y ganador
-                        if (sumaNumeros % 2 == 0){
+                        if (sumaNumeros % 2 == 0) {
                             System.out.println("Gana la opción PAR");
-                            if (esPar == true){
-                                 System.out.println("JUGADOR 1 ENHORABUENA HAS GANADO");
-                            }else {
+                            if (esPar == true) {
+                                System.out.println("JUGADOR 1 ENHORABUENA HAS GANADO");
+                            } else {
                                 System.out.println("JUGADOR 2 ENHORABUENA HAS GANADO");
                             }
                         } else {
                             System.out.println("Gana la opción NONES");
-                            
-                            if (esPar == false){
+
+                            if (esPar == false) {
                                 System.out.println("JUGADOR 1 Ohh que pena has perdido. Pide la revancha");
-                            }else {
+                            } else {
                                 System.out.println("JUGADOR 1 Ohh que pena has perdido. Pide la revancha");
                             }
                         }
-                     
+
                     } while (!optJ1.equals("p") && !optJ1.equals("P") && !optJ1.equals("n")
                             && !optJ1.equals("N"));
 
@@ -135,11 +134,11 @@ public class JuegoParesNones {
                 case "2":
                     System.out.println("Has elegido la opción\n2.MODALIDAD CONTRA LA MÁQUINA\n-----------\n");
                     do {
-                         //solicito si el jugador 1 elige ser PAR O NONES
+                        //solicito si el jugador 1 elige ser PAR O NONES
                         System.out.println("Jugador 1-Introduzca si quiere ser pares (p) o nones (n)");
                         //guardo dato introducido
                         optJ1 = teclado.nextLine();
-                        
+
                         //switch opciones posibles de optJ1
                         switch (optJ1) {
                             //opcion PARES
@@ -147,7 +146,7 @@ public class JuegoParesNones {
                             case "p":
                                 System.out.println("Jugador 1. Has elegido ser PARES\n"
                                         + "La máquina juega con NONES");
-                                esPar = true; 
+                                esPar = true;
                                 break;
                             //opcion NONES 
                             case "n":
@@ -160,15 +159,30 @@ public class JuegoParesNones {
                             default:
                                 System.out.println("opción no válida, intentalo de nuevo");
                                 break;
-                        }//end switch.optJ1 
+                        }//end switch.optJ1 case 2
+
+                        //solicito al jugador 1 su número 
+                        //jugador 1
+                        do {
+                            System.out.println("Jugador 1: \nIntroduzca un número del 1 al 10");
+                            numJ1 = teclado.nextInt();
+
+                            System.out.println("Jugador 1- Has elegido el número: " + numJ1);
+                            break; //break para que no me pida el número infinitas veces, no se como salir del bucle
+                        } while (numJ1 < 0 || numJ1 < 10); //condición siempre entre 0 y 10
+
+                        //genero un número aleatorio de la máquina, rango de 0 a 10. Uso clase random
+                        //estructura (max - min + 1) + min 
+                        numRandom = numAleatorio.nextInt(MAX_VALUE - MIN_VALUE + 1) + MIN_VALUE;
+
+                        System.out.println("La máquina ha elegido el:  " + numRandom);
+
+                        //toca operar 
                         
-                        
-                        
-                        
-                        
-                     while (!optJ1.equals("p") && !optJ1.equals("P") && !optJ1.equals("n")
-                            && !optJ1.equals("N")); 
-                     
+                    }//end do1 case2
+                    while (!optJ1.equals("p") && !optJ1.equals("P") && !optJ1.equals("n")
+                            && !optJ1.equals("N"));
+
                     break;
 
                 case "3":
