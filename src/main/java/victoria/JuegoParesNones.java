@@ -24,7 +24,7 @@ public class JuegoParesNones {
         
         String opcion;
         String optJ1;
-        int numJ1, numJ2;
+        int numJ1, numJ2, sumaNumeros;
        
         
         int NumPares, NumNones;
@@ -87,16 +87,16 @@ public class JuegoParesNones {
                            System.out.println("opción no válida, intentalo de nuevo");
                         break; 
                    }//end switch.optJ1
-                           
-                   
-                /*   
-                   //jugador 1
+                 
+                   //solicito los números a jugar a ambos jugadores
+                    //jugador 1
                    do {
                        System.out.println("Jugador 1: \nIntroduzca un número del 1 al 10");
                        numJ1 = teclado.nextInt();
                        
                        System.out.println("J 1 Has elegido el númer: " +  numJ1);
-                   } while (numJ1 <0 || numJ1 <10 );
+                       break; //break para que no me pida el número infinitas veces, no se como salir del bucle
+                   } while (numJ1 <0 || numJ1 <10 ); //condición siempre entre 0 y 10
                    
                     //jugador 2
                      do {
@@ -104,9 +104,17 @@ public class JuegoParesNones {
                        numJ2 = teclado.nextInt();
                        
                        System.out.println("J2 Has elegido el número: " +  numJ2);
-                   } while (numJ1 <0 || numJ1 <10 );
+                       break; 
+                   } while (numJ2 <0 || numJ2 <10 ); 
                      
-                  */  
+                   //------------OPERO----------------
+                   //Realizo cálculos 
+                    
+                   
+                   //Imprimo ganador 
+                     
+                     
+                     
                    } while (!optJ1.equals("p") && !optJ1.equals("P") && !optJ1.equals("n") 
                            && !optJ1.equals("N"));
                    
