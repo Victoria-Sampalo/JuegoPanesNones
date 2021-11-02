@@ -23,7 +23,8 @@ public class JuegoParesNones {
         //DEFINO VARIABLES A USAR---------------------------
         
         String opcion;
-        String optJ1, optJ2;
+        String optJ1;
+        int numJ1, numJ2;
        
         
         int NumPares, NumNones;
@@ -65,8 +66,47 @@ public class JuegoParesNones {
                    System.out.println("Jugador 1-Introduzca si quiere ser pares (p) o nones (n)");
                    
                    optJ1 = teclado.nextLine();
+                     //  System.out.println("El jugador 1 ha elegido " +  optJ1);
+                   //en función de la elección de jugador 1, el jugador 2 será
+                  
+                   switch (optJ1){
+                       //opcion PARES
+                       case "P":
+                       case "p": 
+                           System.out.println("Jugador 1. Has elegido ser PARES\n"
+                                   + "Jugador 2. Eres NONES");
+                        break;
+                      //opcion NONES 
+                       case "n":
+                       case "N": 
+                           System.out.println("Jugador 1. Has elegido ser NONES\n"
+                                   + "Jugador 2. Eres PARES");
+                       break;
                        
-                    
+                       default:
+                           System.out.println("opción no válida, intentalo de nuevo");
+                        break; 
+                   }//end switch.optJ1
+                           
+                   
+                /*   
+                   //jugador 1
+                   do {
+                       System.out.println("Jugador 1: \nIntroduzca un número del 1 al 10");
+                       numJ1 = teclado.nextInt();
+                       
+                       System.out.println("J 1 Has elegido el númer: " +  numJ1);
+                   } while (numJ1 <0 || numJ1 <10 );
+                   
+                    //jugador 2
+                     do {
+                       System.out.println("Jugador 2: \nIntroduzca un número del 1 al 10");
+                       numJ2 = teclado.nextInt();
+                       
+                       System.out.println("J2 Has elegido el número: " +  numJ2);
+                   } while (numJ1 <0 || numJ1 <10 );
+                     
+                  */  
                    } while (!optJ1.equals("p") && !optJ1.equals("P") && !optJ1.equals("n") 
                            && !optJ1.equals("N"));
                    
