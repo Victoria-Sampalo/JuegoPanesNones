@@ -1,5 +1,7 @@
 /*
 
+URL DEL REPOSITORIO EN GITHUB. 
+url: https://github.com/Victoria-Sampalo/JuegoPanesNones.git
 */
 package victoria;
 
@@ -21,6 +23,8 @@ public class JuegoParesNones {
         //DEFINO VARIABLES A USAR---------------------------
         
         String opcion;
+        String optJ1, optJ2;
+       
         
         int NumPares, NumNones;
         
@@ -52,6 +56,23 @@ public class JuegoParesNones {
              
                case "1": 
                    System.out.println("1. MODALIDAD MANUAL\n-----------\n");
+                   
+                   //solicito si el jugador 1 elige ser PAR O NONES
+                   System.out.println("Jugador 1-Introduzca si quiere ser pares (p) o nones (n)");
+                   
+                   optJ1 = teclado.nextLine();
+                   
+                   //do-while para los datos en string del jugador 1
+                   do {
+                    
+                       
+                     //me meto en la condicion if else para el primer case
+                   
+                   
+                   
+                   } while (!optJ1.equals("p") && !optJ1.equals("P") && !optJ1.equals("n") 
+                           && !optJ1.equals("N"));
+                   
                    
                    
                 break;
