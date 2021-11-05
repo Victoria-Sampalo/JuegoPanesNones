@@ -5,6 +5,7 @@ url: https://github.com/Victoria-Sampalo/JuegoPanesNones.git
  */
 package victoria;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.util.Random;
 
@@ -21,10 +22,11 @@ public class JuegoParesNones {
         //DEFINO VARIABLES A USAR---------------------------
         String opcion;
         String optJ1;
-        int numJ1, numJ2, sumaNumeros, sumaAleatorio;
+        int numJ1 = 0, numJ2 = 0, sumaNumeros, sumaAleatorio;
 
         int numRandom;
         boolean esPar = false; //luego le doy valor en el if-else
+        boolean seguir = false;
 
         //constantes
         final int MAX_VALUE = 10;
@@ -90,20 +92,44 @@ public class JuegoParesNones {
                     //solicito los números a jugar a ambos jugadores
                     //jugador 1
                     do {
+                       try{
+                           
+                        
                         System.out.println("Jugador 1-------Introduzca un número del 1 al 10");
-                        numJ1 = teclado.nextInt();
 
+                        numJ1 = teclado.nextInt();
                         System.out.println("Jugador 1. Has elegido el número: " + numJ1);
-                        break; //break para que no me pida el número infinitas veces, no se como salir del bucle
+                         seguir =false; 
+                        }
+                        catch (InputMismatchException ime){
+                           
+                            System.out.println("Jugador 1, no es un número valido, "
+                                    + "inténtalo de nuevo");
+                            teclado.nextLine();
+                            
+                        };
+                       
+                      
+                        
+                       // break; //break para que no me pida el número infinitas veces, no se como salir del bucle
                     } while (numJ1 < 0 && numJ1 > 10); //condición siempre entre 0 y 10
 
                     //jugador 2
                     do {
+                        try{
+                            
+                       
                         System.out.println("\nJugador 2------Introduzca un número del 1 al 10");
                         numJ2 = teclado.nextInt();
 
                         System.out.println("Jugador 2. Has elegido el número: " + numJ2);
-                        break;
+                        }
+                        catch (InputMismatchException ime) 
+                        {System.out.println("Jugador 1, no es un número valido, "
+                                    + "inténtalo de nuevo");
+                            teclado.nextLine();
+                        };
+                       // break;
                     } while (numJ2 < 0 || numJ2 > 10);
 
                     //------------OPERO----------------
@@ -114,21 +140,23 @@ public class JuegoParesNones {
                     //condición if else para ver resultado y ganador
                     if (sumaNumeros % 2 == 0) {
                         System.out.println("Gana la opción PAR");
-                        if (esPar == true) {
+                        
+                        
+                        if (esPar) {
                             System.out.println("JUGADOR 1--------ENHORABUENA HAS GANADO");
                         } else {
                             System.out.println("JUGADOR 2--------ENHORABUENA HAS GANADO");
                         }
                     } else {
                         System.out.println("Gana la opción NONES");
-
-                        if (esPar == false) {
+                        //antes ponia esPar ==false
+                        if (!esPar) {
                             System.out.println("JUGADOR 1 Ohh que pena has perdido. Pide la revancha");
                         } else {
                             System.out.println("JUGADOR 2 Ohh que pena has perdido. Pide la revancha");
                         }
                     }
-
+                    teclado.nextLine(); 
                     break;
 
                 case "2":
@@ -187,7 +215,7 @@ public class JuegoParesNones {
                     //oncidición if else para ver resultado del ganador
                     if (sumaAleatorio % 2 == 0) {
                         System.out.println("Gana la opción PAR");
-                        if (esPar == true) {
+                        if (esPar) {
                             System.out.println("JUGADOR 1, ENHORABUENA HAS GANADO A LA MÁQUINA");
 
                         } else {
@@ -195,7 +223,8 @@ public class JuegoParesNones {
                         }
                     } else {
                         System.out.println("Gana la opción IMPAR");
-                        if (esPar == false) {
+                        //antes esPar == false
+                        if (!esPar) {
                             System.out.println("JUGADOR 1 Ohh que pena has perdido con una máquina. Pide la revancha");
                         } else {
                             System.out.println("Has vencido a la máquina");
