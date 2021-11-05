@@ -26,7 +26,7 @@ public class JuegoParesNones {
 
         int numRandom;
         boolean esPar = false; //luego le doy valor en el if-else
-        boolean seguir = false;
+        boolean seguir = true;
 
         //constantes
         final int MAX_VALUE = 10;
@@ -92,6 +92,7 @@ public class JuegoParesNones {
                     //solicito los números a jugar a ambos jugadores
                     //jugador 1
                     do {
+                      do{  
                        try{
                            
                         
@@ -108,14 +109,15 @@ public class JuegoParesNones {
                             teclado.nextLine();
                             
                         };
-                       
+                       } while (seguir);
                       
                         
                        // break; //break para que no me pida el número infinitas veces, no se como salir del bucle
-                    } while (numJ1 < 0 && numJ1 > 10); //condición siempre entre 0 y 10
+                    } while (numJ1 < 0 || numJ1 > 10); //Pensar en lo que sucede para que no se cumpla. menor que cero y mayor que diez
 
                     //jugador 2
                     do {
+                      do{ 
                         try{
                             
                        
@@ -123,12 +125,16 @@ public class JuegoParesNones {
                         numJ2 = teclado.nextInt();
 
                         System.out.println("Jugador 2. Has elegido el número: " + numJ2);
+                        
+                        seguir = false;
                         }
                         catch (InputMismatchException ime) 
                         {System.out.println("Jugador 1, no es un número valido, "
                                     + "inténtalo de nuevo");
                             teclado.nextLine();
                         };
+                        
+                        } while (seguir);
                        // break;
                     } while (numJ2 < 0 || numJ2 > 10);
 
@@ -194,12 +200,26 @@ public class JuegoParesNones {
                     //solicito al jugador 1 su número 
                     //jugador 1
                     do {
+                      do{
+                      
+                      try{
                         System.out.println("Jugador 1: \nIntroduzca un número del 1 al 10");
                         numJ1 = teclado.nextInt();
 
                         System.out.println("Jugador 1- Has elegido el número: " + numJ1);
-                        break; //break para que no me pida el número infinitas veces, no se como salir del bucle
-                    } while (numJ1 < 0 || numJ1 > 10); //condición siempre entre 0 y 10
+                        
+                        seguir=false;
+                        
+                        } 
+                      catch (InputMismatchException ime) {
+                          System.out.println("Jugador 1, no es un número valido, "
+                                  + "inténtalo de nuevo");
+                          teclado.nextLine();
+                      };
+                      
+                      }while (seguir); 
+                       // break; //break para que no me pida el número infinitas veces, no se como salir del bucle
+                    } while (numJ1 < 0 || numJ1 > 10); //condición menor que 0 mayor que 10
 
                     //genero un número aleatorio de la máquina, rango de 0 a 10. Uso clase random
                     //estructura (max - min + 1) + min 
